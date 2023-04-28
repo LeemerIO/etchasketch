@@ -1,10 +1,19 @@
 
 const board = document.querySelector('.board');
 
+
 // function to clear board
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
+    }
+}
+
+function resetBlocks() {
+    var elements = document.getElementsByClassName('blocks'); // get all elements
+    for (let i = 0; i < elements.length; i++)
+    {
+        elements[i].style.backgroundColor = "white";
     }
 }
 
@@ -35,27 +44,30 @@ function createGrid(number)
 createGrid(16);
 
 // create buttons to listen to grid size and adjust s
+const reset = document.getElementById("clear");
+reset.addEventListener("click", function () {
+    resetBlocks();
+    });
+
 const small = document.getElementById("16");
 small.addEventListener("click", function () {
-    createGrid(16)
+    createGrid(16);
     });
 
 const medium = document.getElementById("64");
 medium.addEventListener("click", function() { 
-    createGrid(64)
+    createGrid(64);
     });
 
 const large = document.getElementById("128");
 large.addEventListener("click", function() { 
-    createGrid(128)
+    createGrid(128);
     });
-
-
-
 
 // create listen to mouse hover over div's, change colour or mouse is clicked and hovering
 
-
+// on click - turn on on hover
+// on click-release - turn off on hover
 
 
 
