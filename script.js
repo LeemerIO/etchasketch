@@ -1,5 +1,6 @@
 
 const board = document.querySelector('.board');
+let trip = false;
 
 
 // function to clear board
@@ -17,8 +18,14 @@ function resetBlocks() {
     }
 }
 
-function createGrid(number)
+function createGrid(number, colour)
 {
+    let col = "black";
+    if (colour)
+    {
+        col = Math.floor(Math.random()*16777215).toString(16);
+    }
+
     let a = Math.sqrt(number);
     let size = 512/a;
     removeAllChildNodes(board);
@@ -41,7 +48,7 @@ function createGrid(number)
             const element = document.getElementById(`${row}${i}`);
             
             element.addEventListener("mouseenter", (event) => { 
-                event.target.style.backgroundColor = "black";});
+                event.target.style.backgroundColor = `${col}`;});
         }
     }
 }
@@ -56,18 +63,24 @@ reset.addEventListener("click", function () {
 
 const small = document.getElementById("16");
 small.addEventListener("click", function () {
-    createGrid(16);
+    createGrid(16, trip);
     });
 
 const medium = document.getElementById("64");
 medium.addEventListener("click", function() { 
-    createGrid(64);
+    createGrid(64, trip);
     });
 
 const large = document.getElementById("128");
 large.addEventListener("click", function() { 
-    createGrid(128);
+    createGrid(128, trip);
     });
+
+const trippy = document.getElementById("trippy");
+trippy.addEventListener("click", function() { 
+    trip = !trip;
+    });
+    
 
 // create listen to mouse hover over div's, change colour or mouse is clicked and hovering
 
