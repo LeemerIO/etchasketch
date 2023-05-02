@@ -1,7 +1,5 @@
 
 const board = document.querySelector('.board');
-let trip = false;
-
 
 // function to clear board
 function removeAllChildNodes(parent) {
@@ -55,6 +53,8 @@ function createGrid(number, colour)
 
 createGrid(16);
 
+let trip = false;
+
 // create buttons to listen to grid size and adjust s
 const reset = document.getElementById("clear");
 reset.addEventListener("click", function () {
@@ -78,7 +78,7 @@ large.addEventListener("click", function() {
 
 const trippy = document.getElementById("trippy");
 trippy.addEventListener("click", function() { 
-    trip = !trip;
+    trip = true;
     });
     
 
