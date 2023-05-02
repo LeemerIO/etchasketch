@@ -37,6 +37,11 @@ function createGrid(number)
             blocks.style.height = `${size}px`;
             blocks.style.width = `${size}px`;
             rowBlock.appendChild(blocks);
+
+            const element = document.getElementById(`${row}${i}`);
+            
+            element.addEventListener("mouseenter", (event) => { 
+                event.target.style.backgroundColor = "black";});
         }
     }
 }
